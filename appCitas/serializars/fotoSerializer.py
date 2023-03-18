@@ -1,5 +1,5 @@
-from models.usuario import Usuario
-from models.foto import Foto
+from appCitas.models.usuario import Usuario
+from appCitas.models.foto import Foto
 from .usuarioSerializer import UsuarioSerializer
 from rest_framework import serializers
 
@@ -18,7 +18,7 @@ class FotoSerializer(serializers.ModelSerializer):
         return foto
 
     def to_representation(self, obj):
-        usuario = Usuario.objects.get(id=obj.id_usuario1.id)
+        usuario = Usuario.objects.get(id=obj.id_usuario.id)
         return {
             'id': obj.id,
             'imagen_base64': obj.imagen_base64,

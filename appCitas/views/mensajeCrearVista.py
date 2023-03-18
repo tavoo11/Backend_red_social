@@ -9,9 +9,12 @@ class MensajeCrearVista(views.APIView):
     authentication_classes = [JWTAuthentication]
 
     def post(self, request):
-        serializer = MensajeSerializer(data=request.data)
+        data = request.data.copy()  # hacer una copia del objeto de datos
+        data['usuario'] = request.user.id  # agregar el ID del usuario actual al objeto de datos
+        serializer = MensajeSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 

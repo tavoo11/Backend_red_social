@@ -14,11 +14,16 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('usuario/', UsuarioCrearVista.as_view()),
-    path('usuarioid/<int:pk>', UsuarioDetalleVista.as_view()),
+    path('usuarioid/<int:pk>', UsuarioDetalleVista.as_view(), name='usuario especifico'),
+    path('usuarioid/', UsuarioDetalleVista.as_view(), name='usarios todos'),
     path('perfil/', PerfilCrearView.as_view()),
     path('perfilid/<int:pk>', PerfilObtenerView.as_view()),
+    path('perfilid/', PerfilObtenerView.as_view()),
     path('match/', MatchCrearVista.as_view()),
     path('matchid/<int:pk>', MatchDetalleVista.as_view()),
     path('mensaje/', MensajeCrearVista.as_view()),
-    path('mensajeid/<int:pk>', MensajeDetalleVista.as_view()),
+    path('mensaje/<int:id_emisor>/<int:id_receptor>/', MensajeDetalleVista.as_view()),
+    path('mensaje/', MensajeDetalleVista.as_view()),
+
+
 ] 

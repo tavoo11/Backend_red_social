@@ -9,12 +9,7 @@ class PerfilObtenerView(views.APIView):
     authentication_classes = [JWTAuthentication]
     http_method_names = ['get', 'put', 'delete']
 
-    def get(self, pk=None):
-        if pk:
-            perfil = Perfil.objects.get(pk=pk)
-            serializer = PerfilSerializer(perfil)
-            return Response(serializer.data)
-        else:
-            perfiles = Perfil.objects.all()
-            serializer = PerfilSerializer(perfiles, many=True)
-            return Response(serializer.data)
+    def get(self, request, pk=None):
+        perfiles = Perfil.objects.all()
+        serializer = PerfilSerializer(perfiles, many=True)
+        return Response(serializer.data) 
