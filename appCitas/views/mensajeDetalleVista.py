@@ -7,7 +7,7 @@ from appCitas.models.mensaje import Mensaje
 
 class MensajeDetalleVista(views.APIView):
     authentication_classes = [JWTAuthentication]
-    http_method_names = ['get', 'put', 'delete']
+    http_method_names = ['get', 'put', 'delete', 'post']
 
     def get(self, request, *args, **kwargs):
         id_emisor = kwargs.get('id_emisor')

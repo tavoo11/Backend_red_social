@@ -22,7 +22,7 @@ urlpatterns = [
     path('match/', MatchCrearVista.as_view()),
     path('matchid/<int:pk>', MatchDetalleVista.as_view()),
     path('mensaje/', MensajeCrearVista.as_view()),
-    path('mensaje/<int:id_emisor>/<int:id_receptor>/', MensajeDetalleVista.as_view()),
+    path('mensaje/<int:id_emisor>/<int:id_receptor>/', MensajeDetalleVista.as_view(), name='chat especifico'),
     path('mensaje/', MensajeDetalleVista.as_view()),
 
 
