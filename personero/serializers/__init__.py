@@ -1,0 +1,3 @@
+from .candidatoSerializer import CandidatoSerializer
+from .estudianteSerializer import EstudianteSerializer
+from .votoSerializer import VotoSerializer

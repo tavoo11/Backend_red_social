@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'appCitas',
+    'personero',
 ]
 
 SIMPLE_JWT = {

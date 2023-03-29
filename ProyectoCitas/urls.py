@@ -10,6 +10,13 @@ from appCitas.views.matchDetalleVista import MatchDetalleVista
 from appCitas.views.mensajeCrearVista import MensajeCrearVista
 from appCitas.views.mensajeDetalleVista import MensajeDetalleVista
 
+from personero.views.candidatoCrearVista import CandidatoCrearVista
+from personero.views.candidatoDetalleVista import CandidatoDetalleVista
+from personero.views.estudianteCrearVista import EstudianteCrearVista
+from personero.views.estudianteDetalleVista import EstudianteDetalleVista
+from personero.views.votoCrearVista import VotoList
+from personero.views.votoDetalleVista import VotoDetalleVista
+
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
@@ -24,6 +31,16 @@ urlpatterns = [
     path('mensaje/', MensajeCrearVista.as_view()),
     path('mensaje/<int:id_emisor>/<int:id_receptor>/', MensajeDetalleVista.as_view(), name='chat especifico'),
     path('mensaje/', MensajeDetalleVista.as_view()),
+    
+
+    #Vista del proyecto del priolo <int:pk>/
+     path('crearcandidato/', CandidatoCrearVista.as_view()),
+     path('candidato/', CandidatoDetalleVista.as_view()),
+     path('candidato/<int:pk>/', CandidatoDetalleVista.as_view()),
+     path('crearestudiante/', EstudianteCrearVista.as_view()),
+     path('estudiante/', EstudianteDetalleVista.as_view()),
+     path('crearvoto/', VotoList.as_view()),
+     path('votos/', VotoDetalleVista.as_view()),
 
 
 ] 
